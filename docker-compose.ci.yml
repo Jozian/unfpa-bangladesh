@@ -1,0 +1,11 @@
+---
+version: '3'
+services:
+  primero:
+    image: jozian/primero:development
+    volumes:
+      - /srv/primero/app
+
+networks:
+  primero:
+    external: true
