@@ -120,7 +120,7 @@ class Child < CouchRest::Model::Base
       'ration_card_no', 'icrc_ref_no', 'rc_id_no', 'unhcr_id_no', 'unhcr_individual_no','un_no',
       'other_agency_id', 'survivor_code_no', 'national_id_no', 'other_id_no', 'biometrics_id',
       'family_count_no', 'dss_id', 'camp_id', 'tent_number', 'nfi_distribution_id',
-      'process_number'
+      'ciaca_process_id'
     ]
   end
 
