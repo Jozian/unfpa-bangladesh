@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+if [ "${1}" != "beanstalkd" ] || [ "${1}" != "/usr/bin/beanstalkd" ]; then
+    exec "${@}"
+fi
+
+_LISTEN=
+if [ -n ${LISTEN} ]; then
+    _LISTEN="-l ${LISTEN}"
+fi
+
+_PORT=
+if [ -n ${PORT} ]; then
+    _PORT="-p ${PORT}"
+fi
+
+_BINLOG_PATH=
+if [ -n ${BINLOG_PATH} ]; then
+    _BINLOG_PATH="-b ${BINLOG_PATH}"
+fi
+
+exec /usr/bin/beanstalkd ${_LISTEN} ${_PORT} ${_BINLOG_PATH} "$@"

@@ -1,0 +1,69 @@
+#!/bin/sh
+
+CMD="${@}"
+
+CONTAINER_CONFIGURED="${SRCDIR}/.CONTAINER_PRIMERO_CONFIGURED"
+if [ "${CMD}" != "bundle exec puma" ] || [ -e ${CONTAINER_CONFIGURED} ]; then
+  echo "Running ${CMD}..."
+  exec "${@}"
+  exit ${?}
+fi
+
+set -e
+
+echo "Creating primero's mailers config file.."
+cp ${SRCDIR}/config/mailers.yml.example ${SRCDIR}/config/mailers.yml
+
+echo "Creating primero's couchdb config file.."
+cat <<EOH > ${SRCDIR}/config/couchdb.yml
+---
+${RAILS_ENV}:
+  host: couchdb
+  port: 5984
+  https_port: 6984
+  prefix: primero
+  suffix: ${RAILS_ENV}
+  username: ${COUCHDB_USER:-primero}
+  password: ${COUCHDB_PASSWORD:-primero}
+EOH
+
+echo "Creating primero's solr config file.."
+cat <<EOH > ${SRCDIR}/config/sunspot.yml
+---
+${RAILS_ENV}:
+  solr:
+    hostname: solr
+    port: 8983
+    log_level: INFO
+    path: /solr/${RAILS_ENV}
+EOH
+
+echo "Creating primero's locale config file.."
+cat <<EOH > ${SRCDIR}/config/locales.yml
+---
+${RAILS_ENV}:
+  :default_locale: 'en'
+  :locales: ['en', 'fr', 'ar', 'ar-LB', 'so', 'es', 'bn']
+EOH
+
+echo "Creating primero's backburner config file.."
+cat <<EOH > ${SRCDIR}/config/backburner.yml
+---
+${RAILS_ENV}:
+  beanstalk_url: "beanstalk://beanstalkd:11300"
+EOH
+
+bundle exec rake db:migrate:design
+bundle exec rake db:seed
+bundle exec rake db:migrate
+
+bundle exec rake sunspot:reindex
+
+bundle exec rake tmp:cache:clear
+bundle exec rake app:assets_precompile
+
+bundle exec rake couch_changes:prime_sequence_numbers
+
+touch ${CONTAINER_CONFIGURED}
+
+exec "${@}"

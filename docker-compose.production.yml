@@ -1,0 +1,155 @@
+---
+version: "3"
+
+services:
+  primero:
+    image: jozian/primero:development
+    container_name: primero
+    command: bundle exec puma
+    depends_on:
+      - beanstalkd
+      - solr
+      - couchdb
+    build:
+      context: .
+      args:
+        RAILS_ENV: ${RAILS_ENV}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.primero.loadbalancer.server.port=3000"
+      - "traefik.http.routers.primero-web.rule=Host(`${PRIMERO_HOST}`)"
+      - "traefik.http.routers.primero-web.entrypoints=web"
+      - "traefik.http.routers.primero-web.middlewares=traefik-redirectscheme"
+      - "traefik.http.routers.primero-websecure.rule=Host(`${PRIMERO_HOST}`)"
+      - "traefik.http.routers.primero-websecure.entrypoints=websecure"
+      - "traefik.http.routers.primero-websecure.tls=true"
+      - "traefik.http.routers.primero-websecure.tls.certresolver=le"
+      - "traefik.http.middlewares.traefik-redirectscheme.redirectscheme.scheme=https"
+    ports:
+      - "3000:3000"
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+      - ${PRIMERO_PUBLIC_DIR}:/srv/primero/app/public
+      - ${PRIMERO_LOG_PATH}:/srv/primero/app/log
+      - ${PRIMERO_TMP_PATH}:/srv/primero/app/tmp
+
+  scheduler:
+    image: jozian/primero:development
+    container_name: scheduler
+    command: bundle exec rake scheduler:run
+    depends_on:
+      - primero
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+      - ${PRIMERO_LOG_PATH}:/srv/primero/app/log
+
+  couchwatcher:
+    image: jozian/primero:development
+    container_name: couchwatcher
+    command: bundle exec rails r lib/couch_changes/base.rb
+    depends_on:
+      - primero
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+      - ${PRIMERO_LOG_PATH}:/srv/primero/app/log
+      - ${PRIMERO_TMP_PATH}:/srv/primero/app/tmp
+
+  backburner:
+    image: jozian/primero:development
+    container_name: backburner
+    command: bundle exec rake backburner:work
+    depends_on:
+      - beanstalkd
+      - primero
+      - scheduler
+      - couchwatcher
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+      - ${PRIMERO_LOG_PATH}:/srv/primero/app/log
+
+  traefik:
+    image: "traefik:v2.1"
+    container_name: "traefik"
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.le.acme.httpchallenge=${ACME_ENABLE}"
+      - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.le.acme.email=${ACME_EMAIL}"
+      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    restart: always
+    networks:
+      - primero
+    volumes:
+      - "${ACME_STORAGE_PATH}:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  couchdb:
+    image: "jozian/couchdb:latest"
+    container_name: "couchdb"
+    restart: always
+    networks:
+      - primero
+    environment:
+      - COUCHDB_USER=${COUCHDB_USER}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+    ports:
+      - "4369:4369"
+      - "5984:5984"
+      - "6984:6984"
+      - "9100:9100"
+    volumes:
+      - "${COUCHDB_DATA_PATH}:/opt/couchdb/data"
+      - "${COUCHDB_LOG_PATH}:/opt/couchdb/log"
+      - "${COUCHDB_CONFIG_PATH}:/opt/couchdb/etc/local.d"
+
+  solr:
+    image: "solr:5"
+    container_name: "solr"
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - ${RAILS_ENV}
+      - /opt/solr/server/solr/configsets/primero
+    restart: always
+    networks:
+      - primero
+    ports:
+      - "8983:8983"
+    volumes:
+      - "${SOLR_PRIMERO_CONFIGSET_PATH}:/opt/solr/server/solr/configsets/primero"
+      - "${SOLR_CORE_PATH}:/opt/solr/server/solr/mycores"
+
+  beanstalkd:
+    image: jozian/beanstalkd:latest
+    container_name: beanstalkd
+    restart: always
+    networks:
+      - primero
+    ports:
+      - "11300:11300"
+    volumes:
+      - "${BEANSTALKD_BINLOG_PATH}:/var/lib/beanstalkd"
+
+networks:
+  primero:
+    external: true
