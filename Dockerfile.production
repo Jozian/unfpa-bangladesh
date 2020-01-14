@@ -1,0 +1,49 @@
+FROM ruby:2.4
+
+# app user configuration
+ENV APPUSER=app
+ENV HOME=/srv/${APPUSER}
+ENV PATH=${PATH}:${HOME}/.local/bin
+ENV PRIMERO_APP_ROOT_DIR=${HOME}/primero
+
+USER root
+
+RUN GID=$(addgroup --system ${APPUSER} | grep -Eo '[0-9]+') \
+        && adduser \
+        --system \
+        --disabled-password \
+        --ingroup "${APPUSER}" \
+        --home "${HOME}" \
+        --shell /sbin/nologin \
+        --gecos "Container application user" \
+        "${APPUSER}"
+
+# make /bin/sh symlink to bash instead of dash:
+RUN echo "dash dash/sh boolean false" | debconf-set-selections
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
+
+ENV RAILS_ENV production
+
+RUN apt-get -yq update \
+        && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                apt-utils \
+                unattended-upgrades \
+                software-properties-common \
+                apt-transport-https \
+                imagemagick \
+                openjdk-11-jre-headless \
+                libxml2-dev \
+                libxslt1-dev \
+        && apt-get clean
+
+WORKDIR ${PRIMERO_APP_ROOT_DIR}
+
+COPY . .
+
+RUN bundle install -j$(grep processor /proc/cpuinfo | wc -l) --without test development cucumber
+
+# ENTRYPOINT ["/app/docker/app/entrypoint"]
+CMD ["puma"]

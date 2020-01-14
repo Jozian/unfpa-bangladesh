@@ -1,0 +1,67 @@
+---
+version: '3'
+services:
+  primero:
+    image: jozian/primero:development
+    command: bundle exec puma
+    # command: tail -f /srv/primero/app/Dockerfile
+    container_name: primero
+    build:
+      context: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.primero.loadbalancer.server.port=3000"
+      - "traefik.http.routers.primero-web.rule=Host(`${PRIMERO_HOST}`)"
+      - "traefik.http.routers.primero-web.entrypoints=web"
+      - "traefik.http.routers.primero-web.middlewares=traefik-redirectscheme"
+      - "traefik.http.routers.primero-websecure.rule=Host(`${PRIMERO_HOST}`)"
+      - "traefik.http.routers.primero-websecure.entrypoints=websecure"
+      - "traefik.http.routers.primero-websecure.tls=true"
+      - "traefik.http.routers.primero-websecure.tls.certresolver=le"
+      - "traefik.http.middlewares.traefik-redirectscheme.redirectscheme.scheme=https"
+    ports:
+      - "3000:3000"
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+      - ${PRIMERO_PUBLIC_DIR}:/srv/primero/app/public
+      - ${PRIMERO_LOG_PATH}:/srv/primero/app/log
+      - ${PRIMERO_TMP_PATH}:/srv/primero/app/tmp
+
+  backburner:
+    image: jozian/primero:development
+    container_name: backburner
+    command: bundle exec rake backburner:work
+    # depends_on:
+    #   - beanstalkd
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+
+  couchwatcher:
+    image: jozian/primero:development
+    container_name: couchwatcher
+    command: bundle exec rails r lib/couch_changes/base.rb
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+
+  scheduler:
+    image: jozian/primero:development
+    container_name: scheduler
+    command: bundle exec rake scheduler:run
+    networks:
+      - primero
+    restart: unless-stopped
+    volumes:
+      - .:/srv/primero/app
+
+networks:
+  primero:
+    external: true
