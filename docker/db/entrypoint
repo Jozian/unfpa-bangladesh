@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec db-init.sh &
+exec docker-entrypoint.sh "$@"

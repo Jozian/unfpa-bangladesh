@@ -1,0 +1,28 @@
+FROM ruby:2.4
+
+# app user configuration
+ENV APPUSER=primero
+ENV HOME=/srv/${APPUSER}
+ENV SRCDIR=${HOME}/app
+
+ONBUILD ARG UID
+ONBUILD ARG GID
+
+ONBUILD RUN adduser.sh ${UID} ${GID}
+ONBUILD USER ${APPUSER}
+
+# make /bin/sh symlink to bash instead of dash:
+RUN echo "dash dash/sh boolean false" | debconf-set-selections
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+
+RUN apt-get -yq update \
+        && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                unattended-upgrades \
+                imagemagick \
+                openjdk-11-jre-headless \
+                libxml2-dev \
+                libxslt1-dev \
+                inotify-tools \
+        && rm -rf /var/lib/apt/lists/*
+
+COPY docker/app/adduser.sh /usr/local/bin/
