@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
-ruby '2.4.3'
+ruby '2.4.9'
 
 gem 'rapidftr_addon', :git => 'https://github.com/rapidftr/rapidftr-addon.git', :branch => 'master'
 gem 'rapidftr_addon_cpims', :git => 'https://github.com/rapidftr/rapidftr-addon-cpims.git', :branch => 'master'
 
-gem 'couchrest_model', '2.0.4'
+gem 'couchrest_model', '~> 2.0'
 
-gem 'mime-types',     '1.16'
+# Primero needs newer rest-client to connect to latest couchdb
+gem 'rest-client',    '~> 2.1'
+gem 'mime-types',     '~> 1.16'
 gem 'mini_magick',    '~> 4.9.4'
 gem 'pdf-reader',     '2.0.0'
 gem 'prawn',          '~> 2.2.2'
@@ -16,6 +18,7 @@ gem 'uuidtools',      '~> 2.1.1'
 gem 'validatable',    '1.6.7'
 gem 'dynamic_form',   '~> 1.1.4'
 gem 'rake',           '~> 12.3.0'
+gem 'puma',           '~> 4.3'
 gem 'jquery-rails'
 
 #TODO - keeping cancancan at 1.9.2 for now.  Newer versions seem to break.
@@ -89,7 +92,6 @@ group :development do
 end
 
 group :test, :cucumber, :development do
-  gem 'puma', '~> 3.7'
   gem 'pry'
   gem 'pry-byebug'
   gem 'sunspot_test', require: false
