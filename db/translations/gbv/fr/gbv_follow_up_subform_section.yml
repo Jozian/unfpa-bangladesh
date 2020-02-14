@@ -5,35 +5,35 @@ fr:
     description: Sous-formulaire imbriqué sur le suivi
     fields:
       service_type_provided:
-        display_name: ""
+        display_name: Type de service assuré par nous
       followup_date:
-        display_name: Date de suivi
+        display_name: Date du suivi
       followup_service_type:
-        display_name: ""
+        display_name: Type de service de référencement
       action_taken_already:
         display_name: "Est-ce que l'action a été prise?"
       action_taken_details:
         display_name: Détails sur l'action prise
       service_provided_date:
-        display_name: ""
+        display_name: "Si oui, quand est-ce que le service a été fourni?"
       need_follow_up_visit:
         display_name: "Y'a t-il un besoin pour plus de visites de suivi?"
       when_follow_up_visit_should_happen:
         display_name: "Si oui, quand recommendez-vous que la prochaine visite ait lieu?"
       follow_up_comments:
-        display_name: ""
+        display_name: Commentaires
       follow_up_survivor_share_needs:
-        display_name: ""
-        help_text: ""
+        display_name: "Est-ce que la survivante a partagé de nouveaux besoins ou problèmes pendant les rendez-vous de suivi?"
+        help_text: "Si oui, veuillez décrire les besoins et réviser la section du Plan d'Action du Cas"
       survivor_needs_met:
-        display_name: ""
-        help_text: ""
+        display_name: "Est-ce que l'action ou les action(s) prises ont répondu aux besoins de la survivante?"
+        help_text: "Si non, veuillez mettre à jour la Section du Plan d'action du cas afin de répondre à ces besoin(s)"
       referred_for_another_appointment:
-        display_name: ""
+        display_name: "Si non, avez-vous référé la survivante pour un autre rendez-vous?"
       recommend_case_closed:
-        display_name: ""
+        display_name: "Si les besoins ont été remplis, recommandez-vous que le cas soit clôturer ?"
       case_action_plan_implementation_timing:
-        display_name: ""
+        display_name: "Pour ce cas combien de temps ça vous a pris pour mettre en oeuvre le Plan d'action avec la survivante? "
       progress_made_towards_goals:
         display_name: Progrès effectués vers les objectifs fixés
         help_text: Evaluez les progrès effectués vers les objectifs convenus dans l'évaluation et le plan d'action de la survivante
@@ -42,17 +42,17 @@ fr:
       gbv_assessment_progress_safety_text:
         display_name: Expliquer les progrès effectués vers les objectifs de sûreté
       gbv_assessment_progress_health:
-        display_name: Progrès effectués vers les objectifs soins de santé/médicaux
+        display_name: Progrès effectués vers les objectifs de soins de santé/médicaux
       gbv_assessment_progress_health_text:
         display_name: Expliquer les progrès effectués vers les objectifs soins de santé/médicaux
       gbv_assessment_progress_psychosocial:
-        display_name: Progrès effectués vers les objectifs soutien psychosocial
+        display_name: Progrès effectués vers les objectifs de soutien psychosocial
       gbv_assessment_progress_psychosocial_text:
-        display_name: Expliquer les progrès effectués vers les objectifs soutien psychosocial
+        display_name: Expliquer les progrès effectués vers les objectifs de soutien psychosocial
       gbv_assessment_progress_justice:
-        display_name: ""
+        display_name: Progrès effectués vers les objectifs d'accès à la justice
       gbv_assessment_progress_justice_text:
-        display_name: ""
+        display_name: Expliquer les progrès effectués vers les objectifs d'accès à la justice
       gbv_assessment_other_goals_list:
         display_name: Autres objectifs (lister ici)
       gbv_assessment_other_goals:

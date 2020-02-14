@@ -3,7 +3,7 @@ fr:
   incident_record_owner:
     name: Propriétaire de l'enregistrement
     description: Propriétaire de l'enregistrement
-    # form_group_name: ""
+    form_group_name: Propriétaire de l'enregistrement
     fields:
       current_owner_section:
         display_name: Propriétaire actuel
@@ -22,8 +22,8 @@ fr:
       created_organization:
         display_name: Créé par l'organisation
       previously_owned_by:
-        display_name: Propriétaire précédent
+        display_name: Précédent propriétaire 
       previous_agency:
-        display_name: Organisation précédente
+        display_name: " Précédente organisation"
       module_id:
         display_name: Module

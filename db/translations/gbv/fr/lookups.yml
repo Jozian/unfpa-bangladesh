@@ -1,19 +1,19 @@
 ---
 fr:
   lookup-age-group-type:
-    name: ""
+    name: Type de groupe d'âge
     lookup_values:
-      adult: ""
-      minor: ""
-      unknown: ""
+      adult: Adulte
+      minor: Mineur
+      unknown: Inconnu
   lookup-agency-office:
-    name: ""
+    name: Bureau de l'agence
     lookup_values:
-      agency_office_1: ""
-      agency_office_2: ""
-      agency_office_3: ""
-      agency_office_4: ""
-      agency_office_5: ""
+      agency_office_1: Bureau de l'agence 1
+      agency_office_2: Bureau de l'agence 2
+      agency_office_3: Bureau de l'agence 3
+      agency_office_4: Bureau de l'agence 4
+      agency_office_5: Bureau de l'agence 5
   lookup-approval-status:
     name: l'état de l'approbation
     lookup_values:
@@ -72,12 +72,12 @@ fr:
       6_12_year_old: 6-12 ans
       13_17_year_old: 13-17 ans
   lookup-conference-case-status:
-    name: ""
+    name: Statut du cas en conférence
     lookup_values:
-      open: ""
-      closed: ""
-      transferred: ""
-      other: ""
+      open: Le cas restera ouvert
+      closed: Le cas sera fermé
+      transferred: Le cas sera transféré
+      other: Autre
   lookup-country:
     name: Pays
     lookup_values:
@@ -295,7 +295,7 @@ fr:
       physical_disability: Handicap physique
       both: Handicap mental et physique
   lookup-disability-type-with-mental-physical:
-    name: Type d'handicap
+    name: Type d'handicaps mental et physique combinés
     lookup_values:
       'no': 'Non'
       mental_disability: Handicap mental
@@ -341,21 +341,21 @@ fr:
       ethnicity9: Ethnicité 9
       ethnicity10: Ethnicité 10
   lookup-family-relationship:
-    name: ""
+    name: Relation familiale
     lookup_values:
-      mother: ""
-      father: ""
-      aunt: ""
-      uncle: ""
-      grandmother: ""
-      grandfather: ""
-      brother: ""
-      sister: ""
-      husband: ""
-      wife: ""
-      partner: ""
-      other_family: ""
-      other_nonfamily: ""
+      mother: Mère
+      father: Père
+      aunt: Tante
+      uncle: Oncle
+      grandmother: Grand-mère
+      grandfather: Grand-père
+      brother: Frère
+      sister: Soeur
+      husband: Mari
+      wife: Femme
+      partner: Conjoint
+      other_family: Autre membre de la famille
+      other_nonfamily: Autre hors membre de la famille
   lookup-followup-type:
     name: Type de suivi
     lookup_values:
@@ -364,16 +364,16 @@ fr:
       for_service: Suivi pour l'accès aux services
       for_assesment: Suivi pour l'évaluation
   lookup-further-action_needed:
-    name: ""
+    name: Autre action nécessaire
     lookup_values:
-      no_further_action_needed: ""
-      ongoing_monitoring: ""
-      urgent_intervention: ""
+      no_further_action_needed: Plus d'action nécessaire
+      ongoing_monitoring: Monitoring en cours
+      urgent_intervention: Intervention urgente
   lookup-gbv-approval-types:
-    name: ""
+    name: Type d'approbation pour les utilisateurs VBG
     lookup_values:
-      case_plan: ""
-      closure: ""
+      case_plan: Plan du cas
+      closure: Clôture
   lookup-gbv-reported-elsewhere:
     name: "Oui, Non ou Inconnu"
     lookup_values:
@@ -452,8 +452,8 @@ fr:
       zone: Zone
       sub_district: Sous-District
       locality: Localité
-      prefecture: Prefecture
-      sub-prefecture: Sub-Prefecture
+      prefecture: Préfecture
+      sub-prefecture: Sub-Préfecture
       commune: Commune
       payam: Payam
       other: Autre
@@ -471,7 +471,7 @@ fr:
       married_cohabitating: Mariée / En concubinage
       divorced_separated: Divorcée / Séparée
       widowed: Veuve
-      unknown_not_applicable: Inconnue/ Sans objet
+      unknown_not_applicable: Inconnu/ Sans objet
   lookup-marital-status-with-spouse:
     name: Etat civil
     lookup_values:
@@ -479,7 +479,7 @@ fr:
       married_cohabitating: Mariée / En concubinage
       divorced_separated: Divorcée / Séparée
       widowed: Veuve
-      with_spouse: ""
+      with_spouse: Avec conjoint/epoux
   lookup-nationality:
     name: Nationalité
     lookup_values:
@@ -589,13 +589,13 @@ fr:
       referral_declined_by_survivor: Service décliné par le/la survivante
       service_unavailable: Service non disponible
   lookup-service-referred-gbv:
-    name: Service référé GBV
+    name: Service référé VBG
     lookup_values:
       referred: Référée
       no_referral_service_provided_by_your_agency: "Non, Service assuré par nous"
       no_referral_services_already_received_from_another_agency: "Non, Service déjà assuré avant d'arriver"
       no_referral_service_not_applicable: "Non, Service ne s'applique pas"
-      no_referral_declined_by_survivor: "Non, Service décliné par le/la survivante"
+      no_referral_declined_by_survivor: "Non, Service décliné par la survivante"
       no_referral_service_unavailable: "Non, Service non disponible"
   lookup-service-response-type:
     name: Type de réponse du service
@@ -629,20 +629,20 @@ fr:
       evening: Soir
       night: Nuit
   lookup-tracing-status:
-    name: ""
+    name: Statut du traçage
     lookup_values:
-      open: ""
-      tracing_in_progress: ""
-      verified: ""
-      reunified: ""
-      closed: ""
+      open: Ouvert
+      tracing_in_progress: Traçage en cours
+      verified: Vérifié
+      reunified: Réuni
+      closed: Clôturé
   lookup-transition-type:
-    name: ""
+    name: Type de transition
     lookup_values:
-      referral: ""
-      reassign: ""
-      transfer: ""
-      transfer_request: ""
+      referral: Référencement
+      reassign: Ré-assigner
+      transfer: Transférer
+      transfer_request: Demande de transfert
   lookup-unaccompanied-separated-status:
     name: Statut non accompagné Séparé
     lookup_values:

@@ -28,7 +28,7 @@ fr:
           '61': 61 ans et Plus
           unknown: Inconnu
       age_type:
-        display_name: ""
+        display_name: Catégorie d'âge de l'auteur présumé
       perpetrator_relationship:
         display_name: Lien entre la survivante et l'auteur présumé
       perpetrator_occupation:

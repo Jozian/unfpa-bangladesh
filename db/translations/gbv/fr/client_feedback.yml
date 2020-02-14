@@ -1,71 +1,71 @@
 ---
 fr:
   client_feedback:
-    name: ""
-    description: ""
-    # form_group_name: ""
+    name: Enquête de satisfaction auprès des bénéficiaires
+    description: Enquête de satisfaction auprès des bénéficiaires
+    form_group_name: Enquête de satisfaction auprès des bénéficiaires
     fields:
       client_feedback_header:
-        display_name: ""
-        help_text: ""
+        display_name: Enquête de satisfaction auprès des bénéficiaires
+        help_text: "L'enquête de satisfaction permet aux bénéficiaires de donner leur avis sur les services qu'elles ont reçues et des informations clés afin d'aider votre organisation à identifier ce qui fonctionne, les défis potentiels, et ce qui doit être amélioré en terme de prestation de service.\nL'enquête de satisfaction peut être délivrée au moment de la clôture du cas, lorsque:\n- Les besoins de la survivante ont été adressés tels que décrits dans le Plan d'Action du Cas.\n- Les besoins de la survivantes ont été adressés dans la mesure du possible.\n- La survivante demande à fermer le cas.\n\nCompleter l'enquête de satisfaction doit être volontaire et anonyme. Cela permet d'obtenir l'avis sur les services afin d'améliorer les programmes. Dans les contextes où les survivantes ne peuvent accéder aux services qu'une seule fois, votre organisation peut décider d'administrer l'Enquête de satisfaction à la fin de la première session, si cela est faisable. \n\nDans les contextes où les survivantes reçoivent des services pour des plus longues périodes de temps, vous pouvez aussi administrer l'Enquête de satisfaction plus fréquemment (ex. tous les mois ou une fois par trimestre). \nLa procédure d'utilisation du formulaire avec la survivante suit le processus suivant:\n\n(1) Expliquer à la personne que le but pour vous et pour votre organisation est d'améliorer vos services, et que son avis compte. \n(2) Informer la personne que les informations partagées resteront anonymes et que cela n'aura aucune incidence sur les services qui lui sont fournis ou dont elle aurait besoin dans le futur. Au final, c'est sa décision si elle veut compléter l'enquête ou pas. \n(3) Un autre gestionnaire de cas, superviseur ou autre staff qualifié devra administrer le questionnaire et le collecter à la fin. Pour les personnes qui savent lire, cela peut être fait indépendamment sur une feuille papier ou électronique (sur appareil mobile) dans lequel la personne n'a pas à indiquer son nom, juste le nom de la gestionnaire de cas qui lui a fourni le service."
       client_feedback_date:
-        display_name: ""
+        display_name: Date où l'avis a été fourni par la survivante
       client_feedback_administered_by:
-        display_name: ""
-        help_text: ""
+        display_name: Questionnaire administré par
+        help_text: "Instructions à l'intention du personnel : \n- Identifiez le membre de votre équipe qui soumettra le questionnaire de satisfaction. Identifiez s'il sera complété par écrit (en donnant le questionnaire à la personne pour qu'elle le remplisse elle-même), ou si le membre du personnel posera les questions et consignera les réponses de la personne. \n- Informez la personne que vous lui poserez des questions, mais que vous n'écrirez pas son nom sur le formulaire et que l'entretien restera anonyme. \n- Expliquez le but de l'évaluation. Dites : « Ce questionnaire est confidentiel et votre participation est volontaire. Il a pour but de recueillir des informations sur les services qui vous ont été fournis et d'améliorer la qualité des soins que les survivants de VBG reçoivent au sein de cette communauté. » \n- Rappelez à la personne que vous ne lui poserez pas de questions sur son cas en cours, mais que vous vous intéressez uniquement aux services dont elle a bénéficié tout au long du processus de gestion des cas.  \n- Obtenez son consentement avant de continuer ou, si la personne refuse, dites-lui qu'il n'y a pas de problème et que si elle change d'avis, elle peut vous contacter."
       survivor_age_group:
-        display_name: ""
+        display_name: "Si la client est mineure et le tuteur légal a fourni les réponses pour l'Enquête de satisfaction, quel est le groupe d'âge de l'enfant survivant?"
       client_discovery_method:
-        display_name: ""
+        display_name: "Comment la cliente/le tuteur légal a connu votre ou vos service(s)?"
       client_feedback_service_delivery_header:
-        display_name: ""
+        display_name: Prestation de service centrée sur la survivante
       opening_hours_when_client_could_attend:
-        display_name: ""
+        display_name: "Est-ce que les horaires d'ouverture permettaient à la cliente de venir?"
       client_comfortable_with_case_worker:
-        display_name: ""
+        display_name: "Est-ce que la cliente s'est sentie confortable avec la gestionnaire de cas?"
       same_case_worker_each_visit:
-        display_name: ""
+        display_name: "Est-ce que la cliente a pu voir la même personne à chaque visite?"
       could_client_choose_support_person:
-        display_name: ""
+        display_name: "Est-ce que la client a pu décidé d'avoir une personne de confiance avec elle?"
       client_informed_of_options:
-        display_name: ""
+        display_name: "Est-ce que la cliente a reçu des informations complètes sur les options qui lui étaient disponibles?"
       client_decided_what_next:
-        display_name: ""
+        display_name: "Est-ce que la client a déclidé pour elle-même ce qu'elle voulait qu'il se passe par la suite?"
       client_referred_elsewhere:
-        display_name: ""
+        display_name: "Est-ce que la client a été référée à un autre endroit si le service ne pouvait pas être fourni?"
       client_feedback_confidentiality_header:
-        display_name: ""
+        display_name: Confidentialité
       survivor_discreet_access:
-        display_name: ""
+        display_name: "Est-ce que la survivante a pu accéder aux services sans attirer trop d'attention sur elle-même ou sans être vue par d'autres membres de la communauté?"
       staff_respect_confidentiality:
-        display_name: ""
+        display_name: "Est-ce que la gestionnaire de cas a respecté sa confidentialité? A t-elle partagé des informations sur la cliente ou sur son cas qu'elle n'avait pas l'autorisation de faire?"
       client_private_meeting:
-        display_name: ""
+        display_name: "Est-ce que la client a pu voir la gestionnaire de cas ou d'autres employés sans être entendue par d'autres?"
       client_feedback_staff_header:
-        display_name: ""
+        display_name: La gestionnaire de cas
       staff_friendly:
-        display_name: ""
+        display_name: "Est-ce que la gestionnaire de cas était amicale?"
       staff_open_minded:
-        display_name: ""
+        display_name: "Est-ce que la gestionnaire de cas était ouverte d'esprit, et n'a pas jugé la cliente?"
       staff_answered_all_questions:
-        display_name: ""
+        display_name: "Est-ce que la gestionnaire de cas a été capable de répondre à toutes les questions de la client de manière satisfaisante?"
       staff_client_could_understand:
-        display_name: ""
+        display_name: "Est-ce que la gestionnaire de cas a utilisé un langage que la cliente a pu comprendre?"
       staff_allowed_enough_time:
-        display_name: ""
+        display_name: "Est-ce que la gestionnaire de cas a donné assez de temps pour permettre à la cliente d'exprimer ses problèmes dans ses propres mots?"
       staff_helpful:
-        display_name: ""
+        display_name: "Est-ce que la client a senti que la gestionnaire de cas l'a aidé avec son problème?"
       staff_helpful_explain:
-        display_name: ""
+        display_name: Veuillez expliquer
       client_feedback_wellbeing_header:
-        display_name: ""
+        display_name: Le bien-être de la Cliente
       client_feel_better:
-        display_name: ""
+        display_name: "Est-ce que la Cliente s'est sentie bien après avoir vu la gestionnaire de cas?"
       client_feel_better_explain:
-        display_name: ""
+        display_name: Veuillez expliquer
       would_client_recommend_friend:
-        display_name: ""
+        display_name: "Est-ce que la Cliente recommanderez à une amie qui a été victime de VBG de venir ici pour trouver de l'aide?"
       would_client_recommend_friend_explain:
-        display_name: ""
+        display_name: Veuillez expliquer
       client_comments_suggestions:
-        display_name: ""
+        display_name: "Y'a t-il d'autres améliorations que la Cliente voudrait suggérer ou d'autres commentaires qu'elle voudrait faire?"

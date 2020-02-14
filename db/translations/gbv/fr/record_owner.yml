@@ -16,15 +16,15 @@ fr:
       owned_by_agency:
         display_name: Agence
       telephone_agency:
-        display_name: ""
+        display_name: Numéro de téléphone de l'agence
       assigned_user_names:
         display_name: Autres utilisateurs assignés
       database_operator_user_name:
-        display_name: ""
+        display_name: Base de données de l'opérateur
       address_registration:
-        display_name: ""
+        display_name: Adresse d'enregistrement
       location_registration:
-        display_name: ""
+        display_name: Lieu de l'adresse
       record_history_separator:
         display_name: Historique de l'enregistrement
       created_by:

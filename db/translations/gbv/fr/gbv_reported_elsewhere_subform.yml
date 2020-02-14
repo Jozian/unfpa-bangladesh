@@ -1,8 +1,8 @@
 ---
 fr:
   gbv_reported_elsewhere_subform:
-    name: Sous-formulaire incident VBG rapporté autre part
-    description: Sous-formulaire incident VBG rapporté autre part
+    name: Sous-formulaire incident VBG rapporté ailleurs
+    description: Sous-formulaire incident VBG rapporté ailleurs
     fields:
       gbv_reported_elsewhere_organization_type:
         display_name: Type de prestataire de service où la survivante a rapporté l'incident

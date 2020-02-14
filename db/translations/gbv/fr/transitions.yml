@@ -37,7 +37,7 @@ fr:
         display_name: Fonction pour outrepasser l'absence de consentement
         tick_box_label: 'Oui'
       consent_individual_transfer:
-        display_name: ""
-        tick_box_label: ''
+        display_name: "Est-ce que le travailleur social a reçu le consentement de l'enfant pour ce transfert?"
+        tick_box_label: 'Oui'
       created_at:
         display_name: Date du référencement ou transfert

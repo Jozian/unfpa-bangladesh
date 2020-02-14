@@ -3,10 +3,10 @@ fr:
   referral_transfer:
     name: Référencements et transferts
     description: Liste des transferts et référencements
-    # form_group_name: ""
+    form_group_name: Référencements et transferts
     fields:
       transfer_status:
-        display_name: Statut du transfert
+        display_name: l'état du transfert
         option_strings_text:
           in_progress: En cours
           accepted: Accepté
