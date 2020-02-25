@@ -31,6 +31,12 @@ source_file = translations/gbv/en/child_protection_services_subform_section.yml
 source_lang = en
 type = YML
 
+[gbv-forms.incident_service_referrals_subform_basic_needs_services_subform_sectionyml]
+file_filter = translations/gbv/<lang>/incident_service_referrals_subform_basic_needs_services_subform_section.yml
+source_file = translations/gbv/en/incident_service_referrals_subform_basic_needs_services_subform_section.yml
+source_lang = en
+type = YML
+
 [gbv-forms.client_feedbackyml]
 file_filter = translations/gbv/<lang>/client_feedback.yml
 source_file = translations/gbv/en/client_feedback.yml
