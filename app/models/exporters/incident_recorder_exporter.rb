@@ -372,6 +372,10 @@ module Exporters
             service_value = model.child_protection_services_subform_section.try(:first).try(:service_protection_referral)
             incident_recorder_service_referral(service_value) if service_value.present?
           end,
+          'service.basic_needs_referral' => ->(model) do
+            service_value = model.try(:service_basic_needs_referral)
+            incident_recorder_service_referral(service_value) if service_value.present?
+          end,
           'consent' => "consent_reporting",
           'agency_code' => ->(model) do
             model.owner.try(:agency).try(:agency_code)
