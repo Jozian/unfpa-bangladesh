@@ -72,5 +72,6 @@ en:
           police_referral: "POLICE / OTHER SECURITY ACTOR"
           livelihoods_referral: "LIVELIHOODS PROGRAM"
           protection_referral: "CHILD PROTECTION SERVICES / EDUCATION SERVICES"
+          basic_needs_referral: "BASIC NEEDS SERVICES"
         consent: "CONSENT GIVEN"
         agency_code: "REPORTING AGENCY CODE"
