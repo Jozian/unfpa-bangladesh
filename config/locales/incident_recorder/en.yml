@@ -15,7 +15,7 @@ en:
         both: "M and F"
       age_group:
         age: "Age"
-        61_older: "61 & Older"
+        61_older: "Age 61 & Older"
         unknown: "Unknown"
         header: "ALLEGED PERPETRATOR AGE GROUP"
       age_type:
