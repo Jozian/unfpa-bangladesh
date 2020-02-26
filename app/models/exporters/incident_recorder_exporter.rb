@@ -373,7 +373,7 @@ module Exporters
             incident_recorder_service_referral(service_value) if service_value.present?
           end,
           'service.basic_needs_referral' => ->(model) do
-            service_value = model.incident_service_referrals_subform_basic_needs_services_subform_section.try(:first).try(:service_protection_referral)
+            service_value = model.incident_service_referrals_subform_basic_needs_services.try(:first).try(:service_basic_needs_referral)
             incident_recorder_service_referral(service_value) if service_value.present?
           end,
           'consent' => "consent_reporting",
